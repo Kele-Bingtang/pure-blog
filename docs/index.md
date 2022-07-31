@@ -58,4 +58,3 @@ postList: detailed
 <ClientOnly>
   <WebInfo />
 </ClientOnly>
-
