@@ -19,5 +19,3 @@ git commit -m "${comment}"    # $1 是启动该脚本传来的参数，如 sh pu
 git push $GITHUB_REPO   
 
 # git push $GITEE_REPO
-
-source ./deploy.sh
