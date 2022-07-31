@@ -1,0 +1,56 @@
+name: CI
+
+#on: [push]
+
+# 在 master 分支发生 push 事件时触发。
+on: 
+  push:
+    branches:
+      - master
+
+env: # 设置环境变量
+  TZ: Asia/Shanghai # 时区（设置时区可使页面中的 最近更新时间 使用时区时间）
+
+jobs: # 工作流
+  build: # 自定义名称
+    runs-on: ubuntu-latest # 必填，运行在虚拟机环境 ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps: 
+      - name: Checkout # 步骤1，拉取代码
+      # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+        uses: actions/checkout@v1 
+      
+      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
+        uses: actions/setup-node@v1 # 作用：安装nodejs
+        with:
+          node-version: ${{ matrix.node-version }} # 版本
+
+      # - name: run deploy.sh # 步骤3：执行脚本 deploy.sh
+      #   env: # 设置环境变量，未设置则不运行
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # token 
+      #     SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }} # 私钥
+      #   run: npm install && npm run deploy  # 执行 deploy.sh 脚本，位于项目根目录
+
+      - name: Push Matser To Gitee  # 步骤4：GitHub 内容同步到 Gitee，同步仓库是 master
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:  # 从源到目的地
+          source-repo: 'git@github.com:Kele-Bingtang/Kele-Bingtang.github.io.git'    #Github 仓库地址
+          destination-repo: 'git@gitee.com:kele-bingtang/Kele-Bingtang.git'    #Gitee 仓库地址
+                              
+      - name: Build Gitee Pages # 步骤5：自动部署到 Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: Kele-Bingtang
+          # 注意在 Settings -> Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库地址，仓库名严格区分大小写，一般地址和仓库名一致，如果地址改了，仓库名不改，要以地址为准（地址仅需后缀，即 https://gitee.com/<username>/xxx 的 xxx 即可）
+          gitee-repo: Kele-Bingtang/Kele-Bingtang
+          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
+          branch: gh-pages
