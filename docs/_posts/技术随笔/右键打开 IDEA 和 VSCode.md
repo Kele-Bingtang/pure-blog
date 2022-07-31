@@ -4,7 +4,7 @@ date: 2022-07-28 09:31:06
 permalink: /right-click/idea-vscode/
 sidebar: auto
 categories:
-  - 技术随笔
+  - 随笔
 tags: 
   - 
 ---

@@ -4,7 +4,7 @@ date: 2022-03-02 09:27:00
 permalink: /java/d/
 sidebar: auto
 categories: 
-  - 技术随笔
+  - 随笔
 tags: 
   - 
 ---

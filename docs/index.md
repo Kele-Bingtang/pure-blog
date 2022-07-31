@@ -35,76 +35,27 @@ postList: detailed
 <!-- 网页左下角动态gif 小熊猫挥手 -->
 <!-- <img src="/img/panda-waving.png" class="panda no-zoom" style="width: 130px;height: 115px;opacity: 0.8;margin-bottom: -4px;padding-bottom:0;position: fixed;bottom: 0;left: 0.5rem;z-index: 1;"> -->
 
+本地址是纯净版，偏向文档风格，你可以在右下角的衣服图标打开 **深色模式**，也许阅读文档起来效果更好。
+
+如果你想访问完整版，请跳转到 <https://notes.youngkbt.cn/>
+
+完整版在纯净版的基础上，加了很多有趣的功能，偏向于博客风格。
+
+完整版有评论区、背景大图、弹窗消息、动态页面标题、私密文章等模块功能。
+
+- 如果你正在配置这些模块功能，又苦于没有现成的参照，可以去完整版看看
+- 如果你遇到任何问题，可以去完整版的留言区 **留言** 告诉我
+
+> 如果本页面无法访问，这里提供所有的地址方便跳转
+
+- 完整版主地址（快）：<https://notes.youngkbt.cn/>
+- 完整版 GitHub Pages 地址（中、快）：<https://github.notes.youngkbt.cn/>
+- 完整版 Gitee Pages 地址（快）：<http://gitee.notes.youngkbt.cn/>
+- 完整版个人服务器地址（慢）：<https://server.notes.youngkbt.cn/>
+- 纯净版主地址（没有花里胡哨的效果，快）：<https://pure.notes.youngkbt.cn/>
+- 纯净版 GitHub Pages 地址（没有花里胡哨的效果，快）：<http://github.youngkbt.cn/pure-blog/>
 
 <ClientOnly>
   <WebInfo />
 </ClientOnly>
 
-<script>
-// 已经不再使用
-/*
-触发全屏相关的代码
-export default {
-  mounted() {
-    this.fullScreen();
-    // 监听滚动
-    window.addEventListener('scroll', () => {
-      const index_class = document.getElementsByClassName('vdoing-index-class')[0];
-      if(index_class){
-        if(document.documentElement.scrollTop == 0){
-          this.fullScreen();
-        }else{
-          this.exitScreen();
-        }
-      }
-   });
-  },
-  watch: {
-    $route(to, from) {
-      if (to.path == "/" && Object.keys(this.$route.query).length == 0) {
-       // 监听滚动
-        window.addEventListener('scroll', () => {
-          if(document.documentElement.scrollTop == 0){
-            this.fullScreen();
-          }else{
-            this.exitScreen();
-          }
-        });
-        this.fullScreen();
-      }
-    },
-  },
-  methods: {
-    // 进入全屏
-    fullScreen() {
-      var el = document.documentElement;
-      var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
-      if (rfs) {
-        rfs.call(el);
-      } else if (typeof window.ActiveXObject !== "undefined") {
-        // for IE，这里其实就是模拟了按下键盘的 F11，使浏览器全屏
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript != null) {
-          wscript.SendKeys("{F11}");
-        }
-      }
-    },
-    // 退出全屏
-    exitScreen() {
-      var el = document;
-      var cfs = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullScreen;
-      if (cfs) {
-        cfs.call(el);
-      } else if (typeof window.ActiveXObject !== "undefined") {
-        // for IE，这里和 fullScreen 相同，模拟按下 F11 键退出全屏
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript != null) {
-          wscript.SendKeys("{F11}");
-        }
-      }
-    }
-  },
-}
-*/
-
-</script>

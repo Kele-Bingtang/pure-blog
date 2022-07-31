@@ -6,7 +6,7 @@ export default <HeadTags>[
   // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
   ['link', { rel: 'shortcut icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
 
-  ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }], // 阿里在线矢量库
+  ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3114978_qe0b39no76.css' }], // 阿里在线矢量库
   ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],  // 解决 Chrome 网站统计不准确问题
 
   [
@@ -23,8 +23,6 @@ export default <HeadTags>[
   // ['script', { src: 'https://unpkg.zhimg.com/react-dom/umd/react-dom.production.min.js' }],
   // ['script', { src: 'https://unpkg.zhimg.com/vue/dist/vue.min.js' }],
   // ['script', { src: 'https://unpkg.zhimg.com/@babel/standalone/babel.min.js' }],
-  // Twikoo 评论系统
-  ['script', { src: 'https://fastly.jsdelivr.net/npm/twikoo@1.4.18/dist/twikoo.all.min.js' }],
 
   // 百度统计 js
   ['script', {}, baidutj],
