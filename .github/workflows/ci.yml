@@ -29,11 +29,11 @@ jobs: # 工作流
         with:
           node-version: ${{ matrix.node-version }} # 版本
 
-      - name: run deploy.sh # 步骤3：执行脚本 deploy.sh
-        env: # 设置环境变量，未设置则不运行
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # token 
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }} # 私钥
-        run: npm install && npm run deploy  # 执行 deploy.sh 脚本，位于项目根目录
+      # - name: run deploy.sh # 步骤3：执行脚本 deploy.sh
+      #   env: # 设置环境变量，未设置则不运行
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # token 
+      #     SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }} # 私钥
+      #   run: npm install && npm run deploy  # 执行 deploy.sh 脚本，位于项目根目录
 
       # - name: Push Matser To Gitee  # 步骤4：GitHub 内容同步到 Gitee，同步仓库是 master
       #   uses: wearerequired/git-mirror-action@master
